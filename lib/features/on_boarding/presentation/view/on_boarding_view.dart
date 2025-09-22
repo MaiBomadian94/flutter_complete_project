@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-
 import '../../../../core/theming/text_styles.dart';
+import '../widgets/doctor_image.dart';
 
 class OnBoardingView extends StatelessWidget {
   const OnBoardingView({super.key});
@@ -12,7 +12,7 @@ class OnBoardingView extends StatelessWidget {
     return Scaffold(
       body: SafeArea(
           child: Padding(
-        padding: EdgeInsets.only(top: 30.h),
+        padding: EdgeInsets.only(top: 30.h,bottom: 30.h),
         child: Column(
           children: [
             Row(
@@ -22,13 +22,16 @@ class OnBoardingView extends StatelessWidget {
                 SizedBox(
                   width: 10.w,
                 ),
-                const Text(
+                Text(
                   'DocDoc',
                   style: TextStyles.textTitle24,
                 )
               ],
             ),
-            SizedBox(height: 40.h,),
+            SizedBox(
+              height: 40.h,
+            ),
+            DoctorImage(),
           ],
         ),
       )),

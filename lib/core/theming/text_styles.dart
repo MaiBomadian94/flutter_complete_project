@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 abstract class TextStyles {
-  static const textTitle24 = TextStyle(
+  static TextStyle textTitle24 = TextStyle(
     fontWeight: FontWeight.bold,
-    fontSize: 24,
+    fontSize: 24.sp,
     fontFamily: 'IBMPlexSansArabic',
     color: Colors.black,
   );
@@ -33,4 +34,9 @@ abstract class TextStyles {
       fontWeight: FontWeight.w500,
       fontSize: 18,
       fontFamily: 'IBMPlexSansArabic');
+  static const textTitle32 = TextStyle(
+    fontWeight: FontWeight.w700,
+    fontSize: 32,
+    fontFamily: 'IBMPlexSansArabic',
+  );
 }
