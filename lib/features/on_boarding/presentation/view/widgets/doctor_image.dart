@@ -1,8 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_complete_project/core/theming/colors.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-
-import '../../../../core/theming/text_styles.dart';
+import '../../../../../core/theming/text_styles.dart';
 
 class DoctorImage extends StatelessWidget {
   const DoctorImage({super.key});
