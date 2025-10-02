@@ -32,6 +32,7 @@ class OnBoardingView extends StatelessWidget {
                     'Docdoc',
                     style: TextStyles.textTitle24,
                   )
+
                 ],
               ),
               SizedBox(
