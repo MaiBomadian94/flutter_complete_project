@@ -64,7 +64,7 @@ class CustomElevatedButton extends StatelessWidget {
               child: Text(
                 title,
                 textAlign: TextAlign.center,
-                style: TextStyles.textTitle16.copyWith(
+                style: Styles.textTitle16.copyWith(
                   color: textColor ?? AppColors.whiteColor,
                 ),
               ),

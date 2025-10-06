@@ -18,14 +18,14 @@ class LoginView extends StatelessWidget {
             children: [
               Text(
                 'Welcome Back',
-                style: TextStyles.textTitle24Bold.copyWith(
+                style: Styles.textTitle24Bold.copyWith(
                   color: AppColors.mainBlue,
                 ),
               ),
               verticalSpace(height: 8),
               Text(
                 "We're excited to have you back, can't wait to \nsee what you've been up to since you last\n logged in.",
-                style: TextStyles.textTitle14.copyWith(
+                style: Styles.textTitle14Regular.copyWith(
                   color: AppColors.greyColor,
                   height: 2,
                   letterSpacing: .2,
