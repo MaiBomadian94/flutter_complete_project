@@ -1,45 +1,36 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_complete_project/core/theming/font_weight.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 abstract class TextStyles {
-  static TextStyle textTitle24 = TextStyle(
-    fontWeight: FontWeight.bold,
+  static TextStyle textTitle24Bold = TextStyle(
+    fontWeight: FontWeightHelper.bold,
     fontSize: 24.sp,
     fontFamily: 'Inter',
     color: Colors.black,
   );
-  static const textTitle10 = TextStyle(
-    fontWeight: FontWeight.w400,
-    fontSize: 10,
+  static TextStyle textTitle14 = TextStyle(
+    fontWeight: FontWeightHelper.normal,
+    fontSize: 14.sp,
     fontFamily: 'Inter',
+    color: Colors.black,
   );
-  static const textTitle12 = TextStyle(
-    fontWeight: FontWeight.w400,
-    fontSize: 12,
+  static TextStyle textTitle12 = TextStyle(
+    fontWeight: FontWeightHelper.normal,
+    fontSize: 12.sp,
+    fontFamily: 'Inter',
+    color: Colors.black,
+  );
+
+  static TextStyle textTitle32Bold = TextStyle(
+    fontWeight: FontWeightHelper.bold,
+    fontSize: 32.sp,
     fontFamily: 'Inter',
   );
 
-  static const textTitle14 = TextStyle(
-    fontWeight: FontWeight.w400,
-    fontSize: 14,
-    fontFamily: 'Inter',
-  );
-  static const textTitle15 =
-      TextStyle(fontWeight: FontWeight.w500, fontSize: 15, fontFamily: 'Inter');
-  static const textTitle16 = TextStyle(
-    fontWeight: FontWeight.w600,
-    fontSize: 16,
-    fontFamily: 'Inter',
-  );
-
-  static const textTitle18 = TextStyle(
-    fontWeight: FontWeight.w500,
-    fontSize: 18,
-    fontFamily: 'Inter',
-  );
-  static const textTitle32 = TextStyle(
-    fontWeight: FontWeight.w700,
-    fontSize: 32,
+  static TextStyle textTitle16 = TextStyle(
+    fontWeight: FontWeightHelper.semiBold,
+    fontSize: 16.sp,
     fontFamily: 'Inter',
   );
 }
