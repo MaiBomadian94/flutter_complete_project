@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_complete_project/core/helpers/extensions.dart';
+import 'package:flutter_complete_project/core/helpers/spacing.dart';
 import 'package:flutter_complete_project/core/theming/colors.dart';
 import 'package:flutter_complete_project/features/on_boarding/presentation/view/widgets/doctor_image.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import '../../../../core/presentation/widgets/custom_elevated_button.dart';
+import '../../../../core/routing/routes.dart';
 import '../../../../core/theming/text_styles.dart';
 
 class OnBoardingView extends StatelessWidget {
@@ -25,34 +28,31 @@ class OnBoardingView extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   SvgPicture.asset('assets/svgs/docdoc.svg'),
-                  SizedBox(
-                    width: 10.w,
-                  ),
+                  horizontalSpace(width: 10),
                   Text(
                     'Docdoc',
-                    style: TextStyles.textTitle24,
+                    style: Styles.textTitle24Bold,
                   )
-
                 ],
               ),
-              SizedBox(
-                height: 40.h,
-              ),
+              verticalSpace(height: 40),
               const DoctorImage(),
               Padding(
                 padding: EdgeInsets.only(left: 30.w, right: 30.w),
                 child: Text(
                   'Manage and schedule all of your medical appointments easily with Docdoc to get a new experience.',
                   textAlign: TextAlign.center,
-                  style: TextStyles.textTitle12
+                  style: Styles.textTitle12Regular
                       .copyWith(color: AppColors.greyColor),
                 ),
               ),
-              SizedBox(height: 30.h),
+              verticalSpace(height: 30),
               Padding(
                 padding: EdgeInsets.symmetric(horizontal: 30.w),
                 child: CustomElevatedButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    context.pushNamed(Routes.login);
+                  },
                   title: 'Get Started',
                   backgroundColor: AppColors.mainBlue,
                 ),

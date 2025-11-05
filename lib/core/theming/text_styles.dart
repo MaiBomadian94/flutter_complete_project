@@ -1,45 +1,61 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_complete_project/core/theming/colors.dart';
+import 'package:flutter_complete_project/core/theming/font_weight.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-abstract class TextStyles {
-  static TextStyle textTitle24 = TextStyle(
-    fontWeight: FontWeight.bold,
+abstract class Styles {
+  static TextStyle textTitle24Bold = TextStyle(
+    fontWeight: FontWeightHelper.bold,
     fontSize: 24.sp,
     fontFamily: 'Inter',
     color: Colors.black,
   );
-  static const textTitle10 = TextStyle(
-    fontWeight: FontWeight.w400,
-    fontSize: 10,
+  static TextStyle textTitle14Regular = TextStyle(
+    fontWeight: FontWeightHelper.normal,
+    fontSize: 14.sp,
     fontFamily: 'Inter',
+    color: Colors.black,
   );
-  static const textTitle12 = TextStyle(
-    fontWeight: FontWeight.w400,
-    fontSize: 12,
-    fontFamily: 'Inter',
-  );
-
-  static const textTitle14 = TextStyle(
-    fontWeight: FontWeight.w400,
-    fontSize: 14,
-    fontFamily: 'Inter',
-  );
-  static const textTitle15 =
-      TextStyle(fontWeight: FontWeight.w500, fontSize: 15, fontFamily: 'Inter');
-  static const textTitle16 = TextStyle(
-    fontWeight: FontWeight.w600,
-    fontSize: 16,
+  static TextStyle textTitle14medium = TextStyle(
+    fontWeight: FontWeightHelper.medium,
+    fontSize: 14.sp,
     fontFamily: 'Inter',
   );
 
-  static const textTitle18 = TextStyle(
-    fontWeight: FontWeight.w500,
-    fontSize: 18,
+  static TextStyle textTitle12Regular = TextStyle(
+    fontWeight: FontWeightHelper.normal,
+    fontSize: 12.sp,
+    fontFamily: 'Inter',
+    color: Colors.black,
+  );
+
+  static TextStyle textTitle32Bold = TextStyle(
+    fontWeight: FontWeightHelper.bold,
+    fontSize: 32.sp,
     fontFamily: 'Inter',
   );
-  static const textTitle32 = TextStyle(
-    fontWeight: FontWeight.w700,
-    fontSize: 32,
+
+  static TextStyle textTitle16semiBold = TextStyle(
+    fontWeight: FontWeightHelper.semiBold,
+    fontSize: 16.sp,
     fontFamily: 'Inter',
+  );
+
+  static TextStyle textTitle14MediumBlack = TextStyle(
+    fontSize: 14.sp,
+    fontWeight: FontWeightHelper.medium,
+    color: AppColors.blackColor,
+  );
+
+  static TextStyle textTitle14RegularGray = TextStyle(
+    fontSize: 14.sp,
+    fontWeight: FontWeightHelper.normal,
+    color: AppColors.greyColor,
+  );
+
+  static TextStyle font14BlueSemiBold = TextStyle(
+    fontSize: 14.sp,
+    fontWeight: FontWeightHelper.semiBold,
+    color: AppColors.mainBlue,
   );
 }
