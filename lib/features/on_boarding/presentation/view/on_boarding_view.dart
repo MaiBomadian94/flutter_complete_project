@@ -42,7 +42,7 @@ class OnBoardingView extends StatelessWidget {
                 child: Text(
                   'Manage and schedule all of your medical appointments easily with Docdoc to get a new experience.',
                   textAlign: TextAlign.center,
-                  style: Styles.textTitle12
+                  style: Styles.textTitle12Regular
                       .copyWith(color: AppColors.greyColor),
                 ),
               ),

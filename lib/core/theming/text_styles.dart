@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_complete_project/core/theming/colors.dart';
 import 'package:flutter_complete_project/core/theming/font_weight.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -21,7 +22,7 @@ abstract class Styles {
     fontFamily: 'Inter',
   );
 
-  static TextStyle textTitle12 = TextStyle(
+  static TextStyle textTitle12Regular = TextStyle(
     fontWeight: FontWeightHelper.normal,
     fontSize: 12.sp,
     fontFamily: 'Inter',
@@ -34,9 +35,27 @@ abstract class Styles {
     fontFamily: 'Inter',
   );
 
-  static TextStyle textTitle16 = TextStyle(
+  static TextStyle textTitle16semiBold = TextStyle(
     fontWeight: FontWeightHelper.semiBold,
     fontSize: 16.sp,
     fontFamily: 'Inter',
+  );
+
+  static TextStyle textTitle14MediumBlack = TextStyle(
+    fontSize: 14.sp,
+    fontWeight: FontWeightHelper.medium,
+    color: AppColors.blackColor,
+  );
+
+  static TextStyle textTitle14RegularGray = TextStyle(
+    fontSize: 14.sp,
+    fontWeight: FontWeightHelper.normal,
+    color: AppColors.greyColor,
+  );
+
+  static TextStyle font14BlueSemiBold = TextStyle(
+    fontSize: 14.sp,
+    fontWeight: FontWeightHelper.semiBold,
+    color: AppColors.mainBlue,
   );
 }

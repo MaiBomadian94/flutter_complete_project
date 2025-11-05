@@ -24,7 +24,10 @@ class CustomTextFormField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      cursorColor: AppColors.blackColor,
       decoration: InputDecoration(
+        fillColor: AppColors.formFilledColor,
+        filled: true,
         isDense: true,
         contentPadding: contentPadding ??
             EdgeInsets.symmetric(
@@ -35,7 +38,7 @@ class CustomTextFormField extends StatelessWidget {
             OutlineInputBorder(
                 borderSide: const BorderSide(
                   color: AppColors.mainBlue,
-                  width: 1,
+                  width: 1.5,
                 ),
                 borderRadius: BorderRadius.circular(16.r)),
         enabledBorder: enabledBorder ??
@@ -45,6 +48,12 @@ class CustomTextFormField extends StatelessWidget {
                   width: 1,
                 ),
                 borderRadius: BorderRadius.circular(16.r)),
+        errorBorder: OutlineInputBorder(
+            borderSide: const BorderSide(
+              color: AppColors.errorColor,
+              width: 1,
+            ),
+            borderRadius: BorderRadius.circular(16.r)),
         hintStyle:
             Styles.textTitle14medium.copyWith(color: AppColors.hintColor),
         hintText: hintText,
