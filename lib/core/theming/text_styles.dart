@@ -58,4 +58,15 @@ abstract class Styles {
     fontWeight: FontWeightHelper.semiBold,
     color: AppColors.mainBlue,
   );
+
+  static TextStyle font13BlueRegular = TextStyle(
+    fontSize: 13.sp,
+    fontWeight: FontWeightHelper.normal,
+    color: AppColors.mainBlue,
+  );
+  static TextStyle font13DarkBlueRegular = TextStyle(
+    fontSize: 13.sp,
+    fontWeight: FontWeightHelper.normal,
+    color: AppColors.blackColor,
+  );
 }
