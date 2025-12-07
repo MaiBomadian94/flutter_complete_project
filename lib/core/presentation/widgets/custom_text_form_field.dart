@@ -12,6 +12,8 @@ class CustomTextFormField extends StatelessWidget {
     this.suffixIcon,
     this.focusedBorder,
     this.enabledBorder,
+    this.controller,
+    required this.validator,
   });
 
   final bool? isObscureText;
@@ -20,47 +22,56 @@ class CustomTextFormField extends StatelessWidget {
   final Widget? suffixIcon;
   final InputBorder? focusedBorder;
   final InputBorder? enabledBorder;
+  final Function(String?) validator;
+  final TextEditingController? controller;
 
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      controller: controller,
       cursorColor: AppColors.blackColor,
       decoration: InputDecoration(
         fillColor: AppColors.formFilledColor,
         filled: true,
         isDense: true,
-        contentPadding: contentPadding ??
-            EdgeInsets.symmetric(
-              horizontal: 17.h,
-              vertical: 20.w,
+        contentPadding:
+            contentPadding ??
+            EdgeInsets.symmetric(horizontal: 17.h, vertical: 20.w),
+        focusedBorder:
+            focusedBorder ??
+            OutlineInputBorder(
+              borderSide: const BorderSide(
+                color: AppColors.mainBlue,
+                width: 1.5,
+              ),
+              borderRadius: BorderRadius.circular(16.r),
             ),
-        focusedBorder: focusedBorder ??
+        enabledBorder:
+            enabledBorder ??
             OutlineInputBorder(
-                borderSide: const BorderSide(
-                  color: AppColors.mainBlue,
-                  width: 1.5,
-                ),
-                borderRadius: BorderRadius.circular(16.r)),
-        enabledBorder: enabledBorder ??
-            OutlineInputBorder(
-                borderSide: const BorderSide(
-                  color: AppColors.lighterGrey,
-                  width: 1,
-                ),
-                borderRadius: BorderRadius.circular(16.r)),
+              borderSide: const BorderSide(
+                color: AppColors.lighterGrey,
+                width: 1,
+              ),
+              borderRadius: BorderRadius.circular(16.r),
+            ),
         errorBorder: OutlineInputBorder(
-            borderSide: const BorderSide(
-              color: AppColors.errorColor,
-              width: 1,
-            ),
-            borderRadius: BorderRadius.circular(16.r)),
-        hintStyle:
-            Styles.textTitle14medium.copyWith(color: AppColors.hintColor),
+          borderSide: const BorderSide(color: AppColors.errorColor, width: 1),
+          borderRadius: BorderRadius.circular(16.r),
+        ),
+        focusedErrorBorder: OutlineInputBorder(
+          borderSide: const BorderSide(color: AppColors.errorColor, width: 1),
+          borderRadius: BorderRadius.circular(16.r),
+        ),
+        hintStyle: Styles.textTitle14medium.copyWith(
+          color: AppColors.hintColor,
+        ),
         hintText: hintText,
         suffixIcon: suffixIcon,
       ),
-      obscureText: false,
+      obscureText: isObscureText ?? false,
       style: Styles.textTitle14medium.copyWith(color: AppColors.formTextColor),
+      validator: (value) => validator(value),
     );
   }
 }

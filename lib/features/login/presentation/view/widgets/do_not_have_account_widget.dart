@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 
-import '../../../../core/theming/text_styles.dart';
+import '../../../../../core/theming/text_styles.dart';
 
 class DontHaveAccountWidget extends StatelessWidget {
   const DontHaveAccountWidget({super.key});
