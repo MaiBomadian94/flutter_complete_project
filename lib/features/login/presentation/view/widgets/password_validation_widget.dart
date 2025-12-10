@@ -23,36 +23,51 @@ class PasswordValidationWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        buildValidationTextRow('At least 1 lowercase letter', hasLowerCase),
-        verticalSpace(height: 2),
-        buildValidationTextRow('At least 1 uppercase letter', hasUpperCase),
-        verticalSpace(height: 2),
-        buildValidationTextRow(
-          'At least 1 special character',
-          hasSpecialCharacters,
+        buildValidationsTextRow(
+          textTitle: 'At least 1 lowercase letter',
+          isValid: hasLowerCase,
         ),
         verticalSpace(height: 2),
-        buildValidationTextRow('At least 8 characters length', hasMinLength),
+        buildValidationsTextRow(
+          textTitle: 'At least 1 uppercase letter',
+          isValid: hasUpperCase,
+        ),
+        verticalSpace(height: 2),
+        buildValidationsTextRow(
+          textTitle: 'At least 1 special character',
+          isValid: hasSpecialCharacters,
+        ),
+        verticalSpace(height: 2),
+        buildValidationsTextRow(
+          textTitle: 'At least 8 characters length',
+          isValid: hasMinLength,
+        ),
 
         verticalSpace(height: 2),
-        buildValidationTextRow('At least 1 number', hasNumber),
+        buildValidationsTextRow(
+          textTitle: 'At least 1 number',
+          isValid: hasNumber,
+        ),
       ],
     );
   }
 }
 
-Widget buildValidationTextRow(String text, bool isValidated) {
+Row buildValidationsTextRow({
+  required String textTitle,
+  required bool isValid,
+}) {
   return Row(
     children: [
       const CircleAvatar(radius: 2.5, backgroundColor: AppColors.greyColor),
       horizontalSpace(width: 6),
       Text(
-        text,
+        textTitle,
         style: Styles.font13DarkBlueRegular.copyWith(
-          decoration: isValidated ? TextDecoration.lineThrough : null,
+          decoration: isValid ? TextDecoration.lineThrough : null,
           decorationColor: Colors.green,
           decorationThickness: 2,
-          color: isValidated ? AppColors.greyColor : AppColors.blackColor,
+          color: isValid ? AppColors.greyColor : AppColors.blackColor,
         ),
       ),
     ],
