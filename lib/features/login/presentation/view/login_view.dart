@@ -7,6 +7,7 @@ import 'package:flutter_complete_project/core/theming/text_styles.dart';
 import 'package:flutter_complete_project/features/login/data/models/login_request_body.dart';
 import 'package:flutter_complete_project/features/login/presentation/login_cubit/login_cubit.dart';
 import 'package:flutter_complete_project/features/login/presentation/view/widgets/do_not_have_account_widget.dart';
+import 'package:flutter_complete_project/features/login/presentation/view/widgets/login_bloc_listener.dart';
 import 'package:flutter_complete_project/features/login/presentation/view/widgets/login_form_section.dart';
 import 'package:flutter_complete_project/features/login/presentation/view/widgets/terms_and_conditions_widget.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -43,6 +44,7 @@ class LoginView extends StatelessWidget {
                 Column(
                   children: [
                     const LoginFormSection(),
+                    verticalSpace(height: 16),
                     Align(
                       alignment: AlignmentDirectional.centerEnd,
                       child: Text(
@@ -56,14 +58,13 @@ class LoginView extends StatelessWidget {
                     CustomElevatedButton(
                       title: 'Login',
                       backgroundColor: AppColors.mainBlue,
-                      onPressed: () {
-                        isLoginValidate(context);
-                      },
+                      onPressed: () => checkLoginValidation(context),
                     ),
                     verticalSpace(height: 32),
                     const TermsAndConditionsWidget(),
                     verticalSpace(height: 32),
                     const Center(child: DontHaveAccountWidget()),
+                    const LoginBlocListener(),
                   ],
                 ),
               ],
@@ -73,15 +74,15 @@ class LoginView extends StatelessWidget {
       ),
     );
   }
-}
 
-void isLoginValidate(BuildContext context) {
-  if (context.read<LoginCubit>().formKey.currentState!.validate()) {
-    context.read<LoginCubit>().login(
-      LoginRequestBody(
-        email: context.read<LoginCubit>().emailController.text,
-        password: context.read<LoginCubit>().passwordController.text,
-      ),
-    );
+  void checkLoginValidation(BuildContext context) {
+    if (context.read<LoginCubit>().formKey.currentState!.validate()) {
+      context.read<LoginCubit>().login(
+        LoginRequestBody(
+          email: context.read<LoginCubit>().emailController.text,
+          password: context.read<LoginCubit>().passwordController.text,
+        ),
+      );
+    }
   }
 }
