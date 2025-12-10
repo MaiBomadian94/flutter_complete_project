@@ -5,6 +5,7 @@ import 'package:flutter_complete_project/features/home/presentation/view/home_vi
 import 'package:flutter_complete_project/features/login/presentation/login_cubit/login_cubit.dart';
 import 'package:flutter_complete_project/features/login/presentation/view/login_view.dart';
 import 'package:flutter_complete_project/features/on_boarding/presentation/view/on_boarding_view.dart';
+import 'package:flutter_complete_project/features/register/presentation/view/sign_up_view.dart';
 
 import '../di/dependency_injection.dart';
 
@@ -20,6 +21,11 @@ class AppRoutes {
             create: (context) => getIt<LoginCubit>(),
             child: const LoginView(),
           ),
+        );
+
+      case Routes.signUp:
+        return MaterialPageRoute(
+          builder: (context) => const SignUpView(),
         );
       case Routes.home:
         return MaterialPageRoute(builder: (context) => const HomeView());
