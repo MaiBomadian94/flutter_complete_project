@@ -3,6 +3,7 @@ import 'package:flutter_complete_project/core/network/api_service.dart';
 import 'package:flutter_complete_project/core/network/dio_factory.dart';
 import 'package:flutter_complete_project/features/login/presentation/login_cubit/login_cubit.dart';
 import 'package:flutter_complete_project/features/register/data/repositories/sign_up_repo.dart';
+import 'package:flutter_complete_project/features/register/presentation/sign_up_cubit/sign_up_cubit.dart';
 import 'package:get_it/get_it.dart';
 
 import '../../features/login/data/repositories/login_repo.dart';
@@ -19,10 +20,12 @@ Future<void> setUpInjection() async {
   // login injections
 
   getIt.registerLazySingleton<LoginRepository>(() => LoginRepository(getIt()));
-  getIt.registerLazySingleton<LoginCubit>(() => LoginCubit(getIt()));
+  getIt.registerFactory<LoginCubit>(() => LoginCubit(getIt()));
 
 
   // sign up injections
   getIt.registerLazySingleton<SignUpRepository>(() => SignUpRepository(getIt()));
+  getIt.registerFactory<SignUpCubit>(() => SignUpCubit(getIt()));
+
 
 }

@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_complete_project/features/register/presentation/sign_up_cubit/sign_up_cubit.dart';
+import 'package:flutter_complete_project/features/register/presentation/view/widgets/sign_up_bloc_listener.dart';
 import 'package:flutter_complete_project/features/register/presentation/view/widgets/sign_up_form_section.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -18,42 +21,49 @@ class SignUpView extends StatelessWidget {
       body: SafeArea(
         child: Padding(
           padding: EdgeInsets.symmetric(horizontal: 24.w, vertical: 30.h),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(
-                'Create Account',
-                style: Styles.textTitle24Bold.copyWith(
-                  color: AppColors.mainBlue,
+          child: SingleChildScrollView(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  'Create Account',
+                  style: Styles.textTitle24Bold.copyWith(
+                    color: AppColors.mainBlue,
+                  ),
                 ),
-              ),
-              verticalSpace(height: 8),
-              Text(
-                "Sign up now and start exploring all that our \napp has to offer. We're excited to welcome\n you to our community!",
-                style: Styles.textTitle14Regular.copyWith(
-                  color: AppColors.greyColor,
-                  height: 2,
-                  letterSpacing: .2,
+                verticalSpace(height: 8),
+                Text(
+                  "Sign up now and start exploring all that our \napp has to offer. We're excited to welcome\n you to our community!",
+                  style: Styles.textTitle14Regular.copyWith(
+                    color: AppColors.greyColor,
+                    height: 2,
+                    letterSpacing: .2,
+                  ),
                 ),
-              ),
-              const SignUpFormSection(),
-              verticalSpace(height: 17),
-              CustomElevatedButton(
-                title: 'Create Account',
-                backgroundColor: AppColors.mainBlue,
-                onPressed: (){},
-                // onPressed: () => checkLoginValidation(context),
-              ),
-              verticalSpace(height: 32),
-              const TermsAndConditionsWidget(),
-              verticalSpace(height: 32),
-              const Center(child: DontHaveAccountWidget()),
-
-
-            ],
+                verticalSpace(height: 16),
+                const SignUpFormSection(),
+                verticalSpace(height: 17),
+                CustomElevatedButton(
+                  title: 'Create Account',
+                  backgroundColor: AppColors.mainBlue,
+                  onPressed: () => checkSignUpValidation(context),
+                ),
+                verticalSpace(height: 32),
+                const TermsAndConditionsWidget(),
+                verticalSpace(height: 32),
+                const Center(child: DontHaveAccountWidget()),
+                const SignUpBlocListener(),
+              ],
+            ),
           ),
         ),
       ),
     );
+  }
+}
+
+void checkSignUpValidation(BuildContext context) {
+  if (context.read<SignUpCubit>().formKey.currentState!.validate()) {
+    context.read<SignUpCubit>().signUp();
   }
 }

@@ -7,6 +7,7 @@ import 'package:flutter_complete_project/features/login/presentation/view/login_
 import 'package:flutter_complete_project/features/on_boarding/presentation/view/on_boarding_view.dart';
 import 'package:flutter_complete_project/features/register/presentation/view/sign_up_view.dart';
 
+import '../../features/register/presentation/sign_up_cubit/sign_up_cubit.dart';
 import '../di/dependency_injection.dart';
 
 class AppRoutes {
@@ -25,7 +26,9 @@ class AppRoutes {
 
       case Routes.signUp:
         return MaterialPageRoute(
-          builder: (context) => const SignUpView(),
+          builder: (context) => BlocProvider(
+            create: (context) => getIt<SignUpCubit>(),
+              child: const SignUpView()),
         );
       case Routes.home:
         return MaterialPageRoute(builder: (context) => const HomeView());

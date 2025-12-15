@@ -4,7 +4,6 @@ import 'package:flutter_complete_project/core/helpers/spacing.dart';
 import 'package:flutter_complete_project/core/presentation/widgets/custom_elevated_button.dart';
 import 'package:flutter_complete_project/core/theming/colors.dart';
 import 'package:flutter_complete_project/core/theming/text_styles.dart';
-import 'package:flutter_complete_project/features/login/data/models/login_request_body.dart';
 import 'package:flutter_complete_project/features/login/presentation/login_cubit/login_cubit.dart';
 import 'package:flutter_complete_project/features/login/presentation/view/widgets/do_not_have_account_widget.dart';
 import 'package:flutter_complete_project/features/login/presentation/view/widgets/login_bloc_listener.dart';
@@ -77,12 +76,7 @@ class LoginView extends StatelessWidget {
 
   void checkLoginValidation(BuildContext context) {
     if (context.read<LoginCubit>().formKey.currentState!.validate()) {
-      context.read<LoginCubit>().login(
-        LoginRequestBody(
-          email: context.read<LoginCubit>().emailController.text,
-          password: context.read<LoginCubit>().passwordController.text,
-        ),
-      );
+      context.read<LoginCubit>().login();
     }
   }
 }

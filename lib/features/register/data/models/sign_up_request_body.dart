@@ -8,7 +8,7 @@ class SignUpRequestBody {
   final String name;
   final String email;
   final String phone;
-  final String gender;
+  final int gender;
   final String password;
   @JsonKey(name: 'password_confirmation')
   final String passwordConfirm;
