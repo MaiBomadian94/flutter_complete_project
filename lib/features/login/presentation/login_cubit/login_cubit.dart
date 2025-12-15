@@ -6,19 +6,24 @@ import 'package:flutter_complete_project/features/login/data/repositories/login_
 import 'package:flutter_complete_project/features/login/presentation/login_cubit/login_states.dart';
 
 class LoginCubit extends Cubit<LoginStates> {
-  final LoginRepository loginRepository;
+  final LoginRepository _loginRepository;
 
-  LoginCubit(this.loginRepository) : super(LoginStates.initial());
+  LoginCubit(this._loginRepository) : super(LoginStates.initial());
 
   TextEditingController passwordController = TextEditingController();
   TextEditingController emailController = TextEditingController();
 
   GlobalKey<FormState> formKey = GlobalKey();
 
-  login(LoginRequestBody loginRequestBody) async {
+  login( ) async {
     emit(LoginStates.loading());
 
-    final response = await loginRepository.login(loginRequestBody);
+    final response = await _loginRepository.login(
+      LoginRequestBody(
+        email: emailController.text,
+        password: passwordController.text,
+      ),
+    );
     return response.when(
       success: (loginResponse) => emit(LoginStates.success(loginResponse)),
       failure: (error) =>
