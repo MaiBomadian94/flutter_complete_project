@@ -110,7 +110,7 @@ class _SignUpFormSectionState extends State<SignUpFormSection> {
           ),
           verticalSpace(height: 16),
           CustomTextFormField(
-            controller: context.read<SignUpCubit>().passwordController,
+            controller: context.read<SignUpCubit>().confirmPassController,
             hintText: 'Confirm Password',
             validator: (value) {
               if (value == null || value.isEmpty) {
