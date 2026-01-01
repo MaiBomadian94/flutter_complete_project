@@ -2,7 +2,7 @@ name: flutter_complete_project
 description: "A new Flutter project."
 publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 
-version: 1.0.0+1
+version: 1.0.1+1
 
 environment:
   sdk: ">=3.8.0 <4.0.0"
@@ -23,6 +23,7 @@ dependencies:
   freezed_annotation: ^3.1.0
   flutter_bloc: ^9.1.1
   get_it: ^9.2.0
+  firebase_core: ^4.3.0
 
 dev_dependencies:
   flutter_test:
